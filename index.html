@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RugbyCup</title>
+
+<!-- STYLESHEETS : begin -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="app">
+
+<div id="banner"></div>
+
+<div id="core" ng-controller="MainCtrl as controller">
+
+	<section id="browse">
+
+		<ul class="nav nav-tabs">
+			<li role="presentation" ng-class="controller.section == 'fixture' ? 'active' : ''">
+				<a href="#fixture" ng-click="controller.section = 'fixture'">Fixture</a>
+			</li>
+			<li role="presentation" ng-class="controller.section == 'equipos' ? 'active' : ''">
+				<a href="#equipos" ng-click="controller.section = 'equipos'">Equipos</a>
+			</li>
+			<li role="presentation" ng-class="controller.section == 'grupos' ? 'active' : ''">
+				<a href="#grupos" ng-click="controller.section = 'grupos'">Grupos</a>
+			</li>
+		</ul>
+
+		<div class="tabs-contents">
+			<div class="fixture-content tab" ng-show="controller.section == 'fixture'">
+				
+				<div ng-repeat="fecha in controller.fechas">
+					<h1>Fecha {{fecha.fecha}}</h1>
+					<div ng-repeat="partido in fecha.partidos">
+						
+						<div class="row fixture-fecha-row" ng-class="$index % 2 == 0 ? '': 'odd'">
+							<div class="col-xs-4">Cancha {{partido.cancha}} - {{partido.hora}}</div>
+							<div class="col-xs-2">{{partido.equipo1}}</div>
+							<div class="col-xs-1">&nbsp;</div>
+							<div class="col-xs-1">VS</div>
+							<div class="col-xs-1">&nbsp;</div>
+							<div class="col-xs-2">{{partido.equipo2}}</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+			<div class="equipos-content tab" ng-show="controller.section == 'equipos'">
+				
+				<select ng-model="controller.selectedEquipo">
+					<option ng-repeat="equipo in controller.equipos" value="{{equipo.id}}">{{equipo.nombre}}</option>
+				</select>
+			
+				<div class="row equipos-row" ng-repeat="equipo in controller.equipos" ng-show="equipo.id == controller.selectedEquipo">
+					<div class="col-xs-2 pic" style="background-image:url('{{equipo.imagen}}')"></div>
+					<div class="col-xs-6">
+						<h1>{{equipo.nombre}}</h1>
+						<p ng-repeat="jugador in equipo.jugadores" ng-class="$index %2 == 0 ? '' : 'odd'">{{jugador}}</p>
+					</div>
+				</div>
+
+			</div>
+			
+			<div class="grupos-content tab" ng-show="controller.section == 'grupos'">
+				<div ng-repeat="grupo in controller.grupos">
+					<h1>{{grupo.nombre}}</h1>
+					
+					<div class="row row-grupo-equipo">
+					
+						<div class="col-xs-8">&nbsp;</div>
+						<div class="col-xs-1">PJ</div>
+						<div class="col-xs-1">GA</div>
+						<div class="col-xs-1">GC</div>
+						<div class="col-xs-1">PTS.</div>
+					
+					</div> 
+
+
+					<div class="row row-grupo-equipo" ng-repeat="equipo in grupo.equipos" ng-class="$index % 2 == 1 ? '' : 'odd'">
+					
+						<div class="col-xs-8">{{equipo.nombre}}</div>
+						<div class="col-xs-1">{{equipo.pj}}</div>
+						<div class="col-xs-1">{{equipo.ga}}</div>
+						<div class="col-xs-1">{{equipo.gc}}</div>
+						<div class="col-xs-1">{{equipo.puntos}}</div>
+					
+					</div> 
+
+				</div>
+
+			</div>
+		</div>
+
+	</section>
+
+</div>
+
+<!-- FOOTER : begin -->
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8">
+				<a class="logo-urucas" href="http://urucas.com" target="_blank"></a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="js/functions.js"></script>
+</body>
+</html>
+
+

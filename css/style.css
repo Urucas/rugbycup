@@ -1,0 +1,71 @@
+.logo-urucas{
+	width: 100px;
+	height: 50px;
+	background-image: url('http://urucas.com/images/logo.png');
+	background-repeat: no-repeat;
+	background-size: 100px 50px;
+	display: block;
+}
+
+#banner {
+	height:310px;
+	width:100%;
+	background-image: url("../img/frontend/header.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+#core {
+	width:90%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#footer {
+	margin-top:30px;
+	width:100%;
+	background:#333;
+}
+
+#browse {
+	margin-top:10px;
+}
+
+.fixture-fecha-row{
+	padding:8px;
+	background-color:#f3f3f3;
+}
+
+.fixture-fecha-row.odd, .equipos-row p.odd, .row-grupo-equipo.odd{
+	background-color:#ebebeb;
+}
+
+.equipos-row .pic{
+	border-radius:100%;
+	width:125px;
+	height:125px;
+	background-position:50% 50%;
+	background-repeat:no-repeat;
+	background-size:cover;
+	margin:10px;
+}
+
+.equipos-row p{
+	margin:0px;
+	padding:10px;
+	border-bottom:1px solid #f7f7f7;
+	background-color:#f3f3f3;
+
+}
+
+.equipos-content select{
+	float:right;
+	font-size:1.8em;
+	margin:8px;
+}
+
+.row-grupo-equipo {
+	background-color:#f3f3f3;
+	border-bottom:1px solid #ccc;
+	padding:8px;
+}

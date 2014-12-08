@@ -1,0 +1,21 @@
+{
+  "name": "rugbycup",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Urucas/rugbycup",
+  "authors": [
+    "Urucas <hello@urucas.com>"
+  ],
+  "description": "Rugbycup website",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
