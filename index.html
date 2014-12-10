@@ -12,24 +12,58 @@
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400' rel='stylesheet' type='text/css'>
 <link href="css/font-awesome.min.css" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body ng-app="app">
 
-<div id="banner"></div>
+<div id="banner">
+	<div class="signup">
+		<p class="date"><i class="fa fa-calendar"></i>&nbsp;Sabado 13 dic, 2014 - 15:00hs&nbsp;&nbsp;&nbsp;<i class="fa fa-location-arrow"></i>&nbsp;Sede Club Atletico Provincial</p>
+	</div>
+</div>
 
 <div id="map_container">
 	<button id="location-btt">
 		<i class="fa fa-location-arrow"></i>
 	</button>
-	<img src="https://maps.googleapis.com/maps/api/staticmap?center=-32.961799,-60.6642438&zoom=15&size=260x310&maptype=roadmap&markers=color:green%7Clabel:%7C-32.961799,-60.66424384">
+	<img src="https://maps.googleapis.com/maps/api/staticmap?center=-32.961799,-60.6642438&zoom=15&size=260x306&maptype=roadmap&markers=color:green%7Clabel:%7C-32.961799,-60.66424384">
 </div>	
 
 <div id="core" ng-controller="MainCtrl as controller">
 
-	<section id="browse">
+	<section id="signup" ng-show="controller.signup == true">
+		<div class="premios">
+			<h1>Premios</h1>
+			<div class="row">
+				<div class="col-xs-offset-2 col-xs-3 no-padding-right">
+					<p class="prize prize-2">2</p>
+					<p class="prize-desc prize-desc-2">3 fernets + 4 cocas</p>
+				</div>
+				<div class="col-xs-3 no-padding-sides">
+					<p class="prize">1</p>
+					<p class="prize-desc prize-desc-1">Costillar con 4 fernets + 6 cocas</p>
+				</div>
+				<div class="col-xs-3 no-padding-left">
+					<p class="prize prize-3">3</p>
+					<p class="prize-desc">2 fernets + 3 cocas</p>
+				</div>
+			</div>
+		</div>
+		<div class="sponsors">
+			<h1>Sponsors</h1>
+			<div class="sponsor" ng-repeat="sponsor in controller.sponsors">
+				<a href="{{sponsor.link}}" target="_blank">
+					<img src="{{sponsor.imagen}}" />
+				</a>
+			</div>
+		</div>
+		<a class="signup-btt" href="mailto:info@urucas.com">Inscribite!</a>
+	</section>
+
+	<section id="browse" ng-hide="controller.signup == true">
 
 		<ul class="nav nav-tabs">
 
@@ -132,13 +166,7 @@
 
 <!-- FOOTER : begin -->
 <footer id="footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-8">
-				<a class="logo-urucas" href="http://urucas.com" target="_blank"></a>
-			</div>
-		</div>
-	</div>
+	<a class="logo-urucas" href="http://urucas.com" target="_blank"></a>
 </footer>
 
 

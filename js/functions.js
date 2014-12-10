@@ -13,6 +13,13 @@ angular
 .controller('MainCtrl', ['Fixture', function(Fixture){
 
 	this.section = "fixture";
+	this.signup = true;
+
+	this.sponsors = [];
+	this.sponsors.push({
+		imagen: "img/frontend/pranzo.jpg", 
+		link: "https://www.facebook.com/pranzoviandas?fref=ts"
+	});
 
 	this.fechas = [];
 	this.fechas.push({

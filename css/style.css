@@ -1,3 +1,14 @@
+body{
+	background:#f5f5f5;
+	font-family: 'Roboto', sans-serif;
+}
+
+#footer{
+	box-shadow: 0px 1px 10px 0px rgba(51, 51, 51, 0.7);
+	-moz-box-shadow: 0px 1px 10px 0px rgba(51, 51, 51, 0.7);
+	-webkit-box-shadow: 0px 1px 10px 0px rgba(51, 51, 51, 0.7);
+}
+
 .logo-urucas{
 	width: 100px;
 	height: 50px;
@@ -13,14 +24,13 @@
 	background-image: url("../img/frontend/header.jpg");
 	background-repeat:no-repeat;
 	background-size:cover;
-	margin-bottom:18px;
-	box-shadow: 0px 1px 10px 0px rgba(51, 51, 51, 0.7);
-	-moz-box-shadow: 0px 1px 10px 0px rgba(51, 51, 51, 0.7);
-	-webkit-box-shadow: 0px 1px 10px 0px rgba(51, 51, 51, 0.7);
+	margin-bottom:0px;
+	background-position-y:75%;
+	border-bottom:3px solid #aa4243;
 }
 
 #core {
-	width:90%;
+	width:100%;
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -83,7 +93,7 @@
 }
 
 #map_container{
-	height:310px;
+	height:306px;
 	width:260px;
 	background:#fff;
 	position:absolute;
@@ -109,6 +119,95 @@
 }
 
 #map_container img{
-	height:310px;
+	height:306px;
 	width:260px;
+}
+
+.signup {
+	width:100%;
+	text-align: center;
+	background:rgba(255,255,255, 0.8);
+	color:#000;
+	position:relative;
+	top:263px;
+}
+
+.signup .date{
+	margin:0px;
+	padding-top:12px;
+	padding-bottom:12px;
+}
+
+.sponsors, .premios{
+	width:90%;
+	text-align:center;
+	margin-top:40px;
+}
+
+.sponsor img{
+	width:100px;
+	height:100px;
+	border-radius:100%;
+	border:2px solid #616161;
+}
+
+.signup-btt {
+	margin-top:160px;
+	margin-bottom:30px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	padding:12px;
+	font-size:1.8em;
+	color:#fff;
+	background:#080;
+	border-radius:5px;
+	width:60%;
+	text-align:center;
+}
+
+.signup-btt:hover{
+	text-decoration:none;
+	color:#fff;
+}
+
+.prize{
+	font-size:3em;
+	border-radius:100%;
+}
+
+.prize-2{
+	padding-top:24px;
+}
+
+.prize-3{
+	padding-top:48px;
+}
+
+.prize-desc{
+	background:#333;
+	color:#fff;
+	padding:12px;
+	min-height:80px;
+}
+
+.no-padding-sides{
+	padding-left:0px !important;
+	padding-right:0px !important;
+}
+
+.no-padding-left{
+	padding-left:0px !important;
+}
+
+.no-padding-right{
+	padding-right:0px !important;
+}
+
+.prize-desc-1{
+	min-height:128px;
+}
+
+.prize-desc-2{
+	min-height:104px;
 }
