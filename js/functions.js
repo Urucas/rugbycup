@@ -16,6 +16,11 @@ angular
 	this.signup = true;
 
 	this.sponsors = [];
+	
+	this.sponsors.push({
+		imagen: 'img/frontend/provin.png',
+		link: 'https://www.facebook.com/pages/Club-Atl%C3%A9tico-Provincial/704455729575876?fref=ts'
+	});
 	this.sponsors.push({
 		imagen: "img/frontend/pranzo.jpg", 
 		link: "https://www.facebook.com/pranzoviandas?fref=ts"

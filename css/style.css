@@ -309,7 +309,7 @@ body{
 	display:inline-block;
 	margin:8px;
 	background: #3b5998;
-	padding:12px 18px;
+	padding:12px 22px;
 	font-size:1.2em;
 }
 
@@ -321,6 +321,10 @@ body{
 	padding:12px 18px;
 	font-size:1.2em;
 	margin-left:0px;
+}
+
+.fb-btt:hover, .tw-btt:hover{
+	color:#fff;
 }
 
 .social-buttons{
