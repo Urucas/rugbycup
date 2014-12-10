@@ -20,6 +20,10 @@ angular
 		imagen: "img/frontend/pranzo.jpg", 
 		link: "https://www.facebook.com/pranzoviandas?fref=ts"
 	});
+	this.sponsors.push({
+		imagen: 'img/frontend/adrenalina-uno.jpg',
+		link: "https://www.facebook.com/AdrenalinaUno.FanPage?fref=ts"
+	});
 
 	this.fechas = [];
 	this.fechas.push({

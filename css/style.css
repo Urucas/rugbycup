@@ -161,6 +161,11 @@ body{
 	padding-top:20px;
 }
 
+.sponsor {
+	float:left;
+	margin-left:8px;
+}
+
 .sponsor img{
 	width:100px;
 	height:100px;
