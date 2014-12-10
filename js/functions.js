@@ -12,7 +12,7 @@ angular
 
 .controller('MainCtrl', ['Fixture', function(Fixture){
 
-	this.section = "grupos";
+	this.section = "fixture";
 
 	this.fechas = [];
 	this.fechas.push({
@@ -119,3 +119,28 @@ angular
 	
 }]);
 
+$(document).ready(function(){
+	$("#location-btt").click(function(){
+		var pos = $("#map_container").css("right");
+				pos = pos == "-260px" ? "0px" : "-260px";
+		$("#map_container").animate({right: pos}, 500);
+	});
+	window.onresize = function(){
+		var w = $(window).width();
+		var pos = $("#map_container").css("right");
+		if(w <730 && pos == "0px"){
+			$("#map_container").animate({right: "-260px"}, 500);
+			return;
+		}
+		if(w >730 && pos == "-260px"){
+			$("#map_container").animate({right: "0px"}, 500);
+			return;
+		}
+	}
+	setTimeout(function(){
+		var w = $(window).width();
+		if(w >730){
+			$("#map_container").animate({right: "0px"}, 500);
+		}
+	}, 1000);
+});

@@ -13,6 +13,10 @@
 	background-image: url("../img/frontend/header.jpg");
 	background-repeat:no-repeat;
 	background-size:cover;
+	margin-bottom:18px;
+	box-shadow: 0px 1px 10px 0px rgba(51, 51, 51, 0.7);
+	-moz-box-shadow: 0px 1px 10px 0px rgba(51, 51, 51, 0.7);
+	-webkit-box-shadow: 0px 1px 10px 0px rgba(51, 51, 51, 0.7);
 }
 
 #core {
@@ -68,4 +72,43 @@
 	background-color:#f3f3f3;
 	border-bottom:1px solid #ccc;
 	padding:8px;
+}
+
+.canchas-content img{
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;
+	max-width: 600px;
+	margin-top:10px;
+}
+
+#map_container{
+	height:310px;
+	width:260px;
+	background:#fff;
+	position:absolute;
+	top:0px;
+	right:0px;
+	box-shadow: 0px 1px 10px 0px rgba(51, 51, 51, 0.7);
+	-moz-box-shadow: 0px 1px 10px 0px rgba(51, 51, 51, 0.7);
+	-webkit-box-shadow: 0px 1px 10px 0px rgba(51, 51, 51, 0.7);
+	right:-260px;
+}
+
+#map_container button{
+	position:absolute;
+	left:-45px;
+	border:none;
+	margin:8px;
+	background:#fff;
+	color:#333;
+	display:inline;
+	width:30px;
+	height:30px;
+	border-radius:3px;
+}
+
+#map_container img{
+	height:310px;
+	width:260px;
 }

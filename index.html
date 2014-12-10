@@ -12,6 +12,7 @@
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -19,11 +20,19 @@
 
 <div id="banner"></div>
 
+<div id="map_container">
+	<button id="location-btt">
+		<i class="fa fa-location-arrow"></i>
+	</button>
+	<img src="https://maps.googleapis.com/maps/api/staticmap?center=-32.961799,-60.6642438&zoom=15&size=260x310&maptype=roadmap&markers=color:green%7Clabel:%7C-32.961799,-60.66424384">
+</div>	
+
 <div id="core" ng-controller="MainCtrl as controller">
 
 	<section id="browse">
 
 		<ul class="nav nav-tabs">
+
 			<li role="presentation" ng-class="controller.section == 'fixture' ? 'active' : ''">
 				<a href="#fixture" ng-click="controller.section = 'fixture'">Fixture</a>
 			</li>
@@ -33,9 +42,15 @@
 			<li role="presentation" ng-class="controller.section == 'grupos' ? 'active' : ''">
 				<a href="#grupos" ng-click="controller.section = 'grupos'">Grupos</a>
 			</li>
+			<li role="presentation" ng-class="controller.section == 'canchas' ? 'active' : ''">
+				<a href="#grupos" ng-click="controller.section = 'canchas'">Canchas</a>
+			</li>
+
 		</ul>
 
 		<div class="tabs-contents">
+
+			<!-- start fixture tab -->
 			<div class="fixture-content tab" ng-show="controller.section == 'fixture'">
 				
 				<div ng-repeat="fecha in controller.fechas">
@@ -43,7 +58,7 @@
 					<div ng-repeat="partido in fecha.partidos">
 						
 						<div class="row fixture-fecha-row" ng-class="$index % 2 == 0 ? '': 'odd'">
-							<div class="col-xs-4">Cancha {{partido.cancha}} - {{partido.hora}}</div>
+							<div class="col-xs-4">Cancha {{partido.cancha}} - <i class="fa fa-clock-o"></i>&nbsp;{{partido.hora}}</div>
 							<div class="col-xs-2">{{partido.equipo1}}</div>
 							<div class="col-xs-1">&nbsp;</div>
 							<div class="col-xs-1">VS</div>
@@ -55,7 +70,9 @@
 				</div>
 
 			</div>
+			<!-- end fixture tab -->
 
+			<!-- start equipos tab -->
 			<div class="equipos-content tab" ng-show="controller.section == 'equipos'">
 				
 				<select ng-model="controller.selectedEquipo">
@@ -71,7 +88,9 @@
 				</div>
 
 			</div>
-			
+			<!-- end fixture tab -->
+
+			<!-- start grupos tab -->
 			<div class="grupos-content tab" ng-show="controller.section == 'grupos'">
 				<div ng-repeat="grupo in controller.grupos">
 					<h1>{{grupo.nombre}}</h1>
@@ -100,6 +119,11 @@
 				</div>
 
 			</div>
+			<!-- end grupos tab -->
+			<div class="canchas-content tab" ng-show="controller.section == 'canchas'">
+				<img src="img/frontend/mapa-canchas.png" />
+			</div>
+
 		</div>
 
 	</section>
@@ -123,6 +147,7 @@
 
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="js/functions.js"></script>
+
 </body>
 </html>
 
