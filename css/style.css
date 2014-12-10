@@ -247,7 +247,7 @@ body{
 	position:relative;
 	font-size:2em;
 	top: -50px;
-	left: 48%;
+	left: 45%;
 }
 
 .iwant2sponsor:hover{
@@ -265,7 +265,7 @@ body{
 }
 
 .instagram {
-	margin-left:8px;
+	text-align:center;
 }
 
 .instagram iframe{
@@ -291,4 +291,33 @@ body{
 	text-align:center;
 	font-size:1.2em;
 	margin-bottom:40px;
+}
+
+@media (max-width: 600px) {
+  .location-header {
+    display: none;
+  }
+}
+
+.fb-btt{
+	color:#fff;
+	display:inline-block;
+	margin:8px;
+	background: #3b5998;
+	padding:12px 18px;
+	font-size:1.2em;
+}
+
+.tw-btt{
+	color:#fff;
+	display:inline-block;
+	margin:8px;
+	background: #00a0d1;
+	padding:12px 18px;
+	font-size:1.2em;
+	margin-left:0px;
+}
+
+.social-buttons{
+	text-align:center;
 }
