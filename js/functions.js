@@ -127,27 +127,22 @@ angular
 }]);
 
 $(document).ready(function(){
-	$("#location-btt").click(function(){
-		var pos = $("#map_container").css("right");
-				pos = pos == "-260px" ? "0px" : "-260px";
-		$("#map_container").animate({right: pos}, 500);
+
+	$('[data-toggle="tooltip"]').tooltip();
+ 
+	var myLatlng = new google.maps.LatLng(-32.962105, -60.663552);
+	var mapOptions = {
+		center: myLatlng,
+		scaleControl: false,
+		scrollwheel: false,
+    draggable: false,
+		zoom: 15
+	};
+	var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+	var marker = new google.maps.Marker({
+    position: myLatlng,
+    map: map,
+		animation: google.maps.Animation.DROP,
+    title:"Se juega la #ProvinRugbyCup!"
 	});
-	window.onresize = function(){
-		var w = $(window).width();
-		var pos = $("#map_container").css("right");
-		if(w <730 && pos == "0px"){
-			$("#map_container").animate({right: "-260px"}, 500);
-			return;
-		}
-		if(w >730 && pos == "-260px"){
-			$("#map_container").animate({right: "0px"}, 500);
-			return;
-		}
-	}
-	setTimeout(function(){
-		var w = $(window).width();
-		if(w >730){
-			$("#map_container").animate({right: "0px"}, 500);
-		}
-	}, 1000);
 });

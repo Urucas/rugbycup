@@ -241,3 +241,54 @@ body{
 .prize-desc-2{
 	min-height:104px;
 }
+
+.iwant2sponsor{
+	color:#fff;
+	position:relative;
+	font-size:2em;
+	top: -50px;
+	left: 48%;
+}
+
+.iwant2sponsor:hover{
+	color:#000;
+}
+
+.fa-location-arrow{
+	cursor:pointer;
+}
+
+.social {
+	background:#333;
+	padding-top:10px;
+	padding-bottom:5px;
+}
+
+.instagram {
+	margin-left:8px;
+}
+
+.instagram iframe{
+	background:#fff;
+	padding-left: 3px;
+	padding-top: 1px
+}
+
+#map-canvas { 
+	height: 310px; 
+	width:100%;
+	margin: 0; 
+	padding: 0;
+	border-bottom: 3px solid #aa4243;
+}
+
+.signup-desc{
+	margin-bottom:75px;
+}
+
+.signup-desc p{
+	margin-top:75px;
+	text-align:center;
+	font-size:1.2em;
+	margin-bottom:40px;
+}
