@@ -335,3 +335,8 @@ body{
 	font-size:2em;
 	color:#fff;
 }
+
+.premios .row{
+	margin-left:0px !important;
+	margin-right:0px !important;
+}
