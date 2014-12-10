@@ -321,3 +321,8 @@ body{
 .social-buttons{
 	text-align:center;
 }
+
+.hashtag {
+	font-size:2em;
+	color:#fff;
+}
