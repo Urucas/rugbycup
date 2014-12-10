@@ -33,25 +33,19 @@
 </div>	
 
 <div id="core" ng-controller="MainCtrl as controller">
-
+	
 	<section id="signup" ng-show="controller.signup == true">
 		<div class="premios">
-			<h1>Premios</h1>
 			<div class="row">
-				<div class="col-xs-offset-2 col-xs-3 no-padding-right">
-					<p class="prize prize-2">2</p>
-					<p class="prize-desc prize-desc-2">3 fernets + 4 cocas</p>
-				</div>
-				<div class="col-xs-3 no-padding-sides">
-					<p class="prize">1</p>
-					<p class="prize-desc prize-desc-1">Costillar con 4 fernets + 6 cocas</p>
-				</div>
-				<div class="col-xs-3 no-padding-left">
-					<p class="prize prize-3">3</p>
-					<p class="prize-desc">2 fernets + 3 cocas</p>
+				<h1 class="col-xs-offset-1 col-xs-2 premios-h1"><i class="fa fa-trophy"></i><br /></h1>
+				<div class="col-xs-8">
+					<p class="prize-1">1er. premio: Costillar con 4 fernets + 6 cocas</p>
+					<p class="prize-2">2do. premio: 3 fernets + 4 cocas</p>
+					<p class="prize-3">3er. premio: 2 fernets + 3 cocas</p>
 				</div>
 			</div>
 		</div>
+
 		<div class="sponsors">
 			<h1>Sponsors</h1>
 			<div class="sponsor" ng-repeat="sponsor in controller.sponsors">
