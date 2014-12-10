@@ -29,6 +29,10 @@ angular
 		imagen: 'img/frontend/adrenalina-uno.jpg',
 		link: "https://www.facebook.com/AdrenalinaUno.FanPage?fref=ts"
 	});
+	this.sponsors.push({
+		imagen: 'img/frontend/positive-media.jpg',
+		link: "https://www.facebook.com/positivemediaweb?fref=ts"
+	});
 
 	this.fechas = [];
 	this.fechas.push({
