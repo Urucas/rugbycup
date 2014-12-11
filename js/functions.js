@@ -33,6 +33,7 @@ angular
 		imagen: 'img/frontend/positive-media.jpg',
 		link: "https://www.facebook.com/positivemediaweb?fref=ts"
 	});
+	/*
 	this.sponsors.push({
 		imagen: 'img/frontend/vinos-sanramom.jpg',
 		link: 'https://www.facebook.com/pages/Vinos-San-Ramom/157837174375098?fref=ts'
@@ -41,7 +42,7 @@ angular
 		imagen: 'img/frontend/amorelli.jpg',
 		link: 'https://www.facebook.com/pages/Amorelli-SRL/219691458117079?fref=ts'
 	})
-
+	*/
 	this.sponsors = shuffle(this.sponsors);
 
 	this.fechas = [];
