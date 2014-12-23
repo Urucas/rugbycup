@@ -72,10 +72,22 @@ body{
 
 }
 
+.equipos-content, .fixture-content, .grupos-content, .canchas-content{
+	padding-top:30px;
+	padding-bottom:20px;
+}
+
+.equipos-content{
+	padding-top:40px;
+}
+
 .equipos-content select{
-	float:right;
+	/*float:left;*/
 	font-size:1.8em;
 	margin:8px;
+	width: 220px;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
 }
 
 .row-grupo-equipo {
@@ -339,4 +351,47 @@ body{
 .premios .row{
 	margin-left:0px !important;
 	margin-right:0px !important;
+}
+
+.loading_modal {
+	display: none;
+	position: fixed;
+	z-index: 99999;
+	top: 0;
+	left: 0;
+	padding-top: 18px;
+	padding-bottom: 18px;
+	font-size: 28px;
+	color: #000;
+	width: 100%;
+	background: rgba( 255, 255, 255, .8 ) url('http://sampsonresume.com/labs/pIkfp.gif') 40% 50% no-repeat;
+	text-align: center;
+}
+
+.nav-tabs{
+	position:absolute;
+	width:100%;
+	background:rgba(0,0,0,0.8);
+	z-index:99999;
+}
+
+.nav-tabs a{
+	color:#fff;
+}
+
+.nav-tabs li a:hover{
+	color:#333;
+}
+
+.tabs-contents{
+	padding-left:25px;
+	padding-right:25px;
+}
+
+.tab{
+	display:none;
+}
+
+.canchas-content{
+	text-align:center;
 }

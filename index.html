@@ -17,15 +17,37 @@
 
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body ng-app="app">
+<body ng-app="app" ng-controller="MainCtrl as controller">
+
+<div class="loading_modal">cargando...</div>
 
 <div id="banner">
 	<div class="signup">
-		<p class="date"><i class="fa fa-calendar"></i>&nbsp;Sabado 13 dic, 2014 - 11:00hs<span class="location-header">&nbsp;&nbsp;&nbsp;<i id="location-btt-mini" class="fa fa-location-arrow"></i>&nbsp;Sede Club Atletico Provincial</span></p>
+
+		<ul class="nav nav-tabs">
+			<li role="presentation" rel="fixture">
+				<a href="#sponsors" ng-click="controller.loadFixture()">Fixture</a>
+			</li>
+			<li role="presentation" rel="equipos">
+				<a href="#sponsors" ng-click="controller.loadEquipos();">Equipos</a>
+			</li>
+			<li role="presentation" rel="grupos">
+				<a href="#sponsors" ng-click="controller.loadGrupos();">Grupos</a>
+			</li>
+			<li role="presentation" rel="canchas">
+				<a href="#sponsors" ng-click="controller.loadCanchas();">Canchas</a>
+			</li>
+			<li role="presentation" rel="reglamento">
+				<a href="#sponsors" ng-click="controller.loadReglamento();">Reglamento</a>
+			</li>
+
+		</ul>
+
+		<!-- p class="date"><i class="fa fa-calendar"></i>&nbsp;Sabado 13 dic, 2014 - 11:00hs<span class="location-header">&nbsp;&nbsp;&nbsp;<i id="location-btt-mini" class="fa fa-location-arrow"></i>&nbsp;Sede Club Atletico Provincial</span></p-->
 	</div>
 </div>
 
-<div id="core" ng-controller="MainCtrl as controller">
+<div id="core">
 	
 	<section id="signup" ng-show="controller.signup == true">
 		<div class="premios">
@@ -40,9 +62,10 @@
 
 			</div>
 		</div>
-
+		
+		<a name="sponsors"></a>
 		<div class="sponsors">
-			<a class="iwant2sponsor" href="mailto:info@urucas.com?subject=Quiero sumarme a los sponsors" data-toggle="tooltip" data-placement="left" title="Quiero sumarme a los sponsors" target="_blank"><i class="fa fa-question-circle"></i></a>
+			<a class="iwant2sponsor" href="mailto:info@urucas.com?subject=Quiero sumarme a los sponsors" data-toggle="tooltip" data-placement="left" title="Quiero sumarme a los sponsors" target="_blank" style="visibility:hidden;"><i class="fa fa-question-circle"></i></a>
 			<h1>Sponsors</h1>
 
 			<div class="sponsor" ng-repeat="sponsor in controller.sponsors">
@@ -54,54 +77,42 @@
 			<div class="clearfix"></div>
 
 		</div>
-		<div class="social">
-			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-6 instagram">
-					<!-- testing instagram -->
-					<iframe src="http://www.intagme.com/in/?h=cHJvdmlucnVnYnljdXB8c2x8MzAwfDJ8M3x8eWVzfDV8dW5kZWZpbmVkfG5v" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:315px; height: 315px" ></iframe>
+		
+		
+		<a name="equipos"></a>
+		<a name="fixture"></a>
+		<a name="grupos"></a>
+		<a name="canchas"></a>
+		<a name="reglamento"></a>
+		<div class="tabs-contents data">
+			
+			<!-- start equipos tab -->
+			<div class="equipos-content tab">
+				
+				<div class="row">
+					<div class="col-xs-offset-1 col-sd-offset-2 col-md-offset-2 col-xs-8 col-sd-8 col-md-8 col-lg-8">
+						<select ng-model="controller.selectedEquipo">
+							<option ng-repeat="equipo in controller.equipos" value="{{equipo.id}}">{{equipo.nombre}}</option>
+						</select>
+					</div>
 				</div>
-				<div class="col-xs-12 col-sm-5 col-md-3 social-buttons">
-					<p class="hashtag">Hashtag #ProvinRugbyCup</p>
-					<a class="fb-btt" href="https://www.facebook.com/events/749798228420046/?fref=ts" target="_blank"><i class="fa fa-facebook"></i></a>
-					<a class="tw-btt" href="https://twitter.com/search?f=realtime&q=%23provinrugbycup" target="_blank"><i class="fa fa-twitter"></i></a>
+
+				<div class="row equipos-row" ng-repeat="equipo in controller.equipos" ng-show="equipo.id == controller.selectedEquipo">
+					<div class="col-xs-offset-1 col-sd-offset-1 col-md-offset-1 col-xs-2 col-sd-2 col-md-2 col-lg-offset-1 pic" style="background-image:url('{{equipo.imagen}}')"></div>
+					<div class="col-xs-6">
+						<h1>{{equipo.nombre}}</h1>
+						<p ng-repeat="jugador in equipo.jugadores" ng-class="$index %2 == 0 ? '' : 'odd'">{{jugador}}</p>
+					</div>
 				</div>
+
 			</div>
-		</div>
+			<!-- end equipos tab -->
 
-		<div id="map-canvas"></div>
-
-		<div class="signup-desc">
-			<p>Partidos de 30min., 3 Partidos Minimo(por equipo)</br>32 equipos de hasta 8 jugadores <br />6 canchas - mayores de 18 años<br />...</p>
-			<a class="signup-btt" href="https://www.facebook.com/events/749798228420046/?fref=ts" target="_blank">Inscribite!</a>
-		</div>
-	</section>
-
-	<section id="browse" ng-hide="controller.signup == true">
-
-		<ul class="nav nav-tabs">
-
-			<li role="presentation" ng-class="controller.section == 'fixture' ? 'active' : ''">
-				<a href="#fixture" ng-click="controller.section = 'fixture'">Fixture</a>
-			</li>
-			<li role="presentation" ng-class="controller.section == 'equipos' ? 'active' : ''">
-				<a href="#equipos" ng-click="controller.section = 'equipos'">Equipos</a>
-			</li>
-			<li role="presentation" ng-class="controller.section == 'grupos' ? 'active' : ''">
-				<a href="#grupos" ng-click="controller.section = 'grupos'">Grupos</a>
-			</li>
-			<li role="presentation" ng-class="controller.section == 'canchas' ? 'active' : ''">
-				<a href="#grupos" ng-click="controller.section = 'canchas'">Canchas</a>
-			</li>
-
-		</ul>
-
-		<div class="tabs-contents">
-
-			<!-- start fixture tab -->
-			<div class="fixture-content tab" ng-show="controller.section == 'fixture'">
+				<!-- start fixture tab -->
+			<div class="fixture-content tab">
 				
 				<div ng-repeat="fecha in controller.fechas">
-					<h1>Fecha {{fecha.fecha}}</h1>
+					<h1>{{fecha.grupo}}</h1>
 					<div ng-repeat="partido in fecha.partidos">
 						
 						<div class="row fixture-fecha-row" ng-class="$index % 2 == 0 ? '': 'odd'">
@@ -119,26 +130,9 @@
 			</div>
 			<!-- end fixture tab -->
 
-			<!-- start equipos tab -->
-			<div class="equipos-content tab" ng-show="controller.section == 'equipos'">
-				
-				<select ng-model="controller.selectedEquipo">
-					<option ng-repeat="equipo in controller.equipos" value="{{equipo.id}}">{{equipo.nombre}}</option>
-				</select>
 			
-				<div class="row equipos-row" ng-repeat="equipo in controller.equipos" ng-show="equipo.id == controller.selectedEquipo">
-					<div class="col-xs-2 pic" style="background-image:url('{{equipo.imagen}}')"></div>
-					<div class="col-xs-6">
-						<h1>{{equipo.nombre}}</h1>
-						<p ng-repeat="jugador in equipo.jugadores" ng-class="$index %2 == 0 ? '' : 'odd'">{{jugador}}</p>
-					</div>
-				</div>
-
-			</div>
-			<!-- end fixture tab -->
-
 			<!-- start grupos tab -->
-			<div class="grupos-content tab" ng-show="controller.section == 'grupos'">
+			<div class="grupos-content tab">
 				<div ng-repeat="grupo in controller.grupos">
 					<h1>{{grupo.nombre}}</h1>
 					
@@ -167,10 +161,92 @@
 
 			</div>
 			<!-- end grupos tab -->
-			<div class="canchas-content tab" ng-show="controller.section == 'canchas'">
+			<div class="canchas-content tab">
 				<img src="img/frontend/mapa-canchas.png" />
 			</div>
 
+			<div class="reglamento-content tab">
+				<h1>Reglamento del Torneo</h1>
+				<p style="white-space:pre">
+<b>Fixture</b>
+
+6 grupos de 4 equipos. 
+Todos contra todos. 3 partidos por equipo. Clasifica el primero y los 2 mejores segundos.
+A partir de cuartos de final partidos a eliminacion directa.
+
+<b>Partidos</b>
+
+2 tiempos de 15 minutos. 2 minutos de entretiempo.
+Cambios estilo basket (sin limite).
+Se puede barrer en el piso.
+Laterales y corners con los pies. Mal sacado cambia la posesion para el contrario, en caso de corner es saque de arco para el otro equipo.
+El arquero puede sacar con la mano hasta mitad de cancha, no puede sacar de aire con los pies. Mal sacado es lateral en mitad de cancha para el contrario
+El arquero no puede agarrar con las manos un pase con los pies, si con la cabeza.
+El arquero que suelta la pelota de las manos no puede volver a agarrarla.
+El arquero puede jugar en cualquier sector de la cancha.
+Penales con pie al lado de la pelota (sin carrera).
+Uso desmedido de la fuerza (a criterio del arbitro) cambio obligado sin posibilidad de ingreso por el resto del partido.
+
+<b>Fase de grupos</b>
+
+3 puntos por partido ganado, 1 por partido empatado.
+Equipo que no se presenta pierde el partido 0-4. Tiempo de espera 5 min.
+Orden de desempate en la tabla (entre primero y segundo o segundo y tercero de ser necesario): Partido entre ambos, diferencia de goles, goles a favor, sorteo.
+En caso de empate en puntos en los mejores segundos (sea entre la cantidad de equipos que sea) define: diferencia de gol, goles a favor.
+Hora de inicio: 12hs.
+Hora de finalizacion: 15:30
+
+Fase eliminatoria
+
+Equipo que no se presenta pierde el partido. Tiempo de espera 5 min.
+En caso de empate hay penales a serie de 5 tiros.
+Horario de inicio: 16:30hs.
+Horario de finalizacion: 20:00
+
+<b>Canchas</b>
+
+6 canchas. 4 de cesped y 2 de cemento.
+En fase de grupo: 2 partidos en cancha de cesped y uno en cancha de cemento.
+Cuartos de final: En cancha de cesped.
+Semifinales: En cancha de cemento.
+Final y 3er puesto: En cancha de cemento.
+
+<b>Premios</b>
+
+Primer puesto: Costillar con 4 fernet y 6 cocas.
+Segundo puesto: 3 fernet y 4 cocas.
+Tercer puesto: 2 fernet y 3 cocas.
+
+<b>Kiosco</b>
+
+Hamburguesas: $20
+Choripanes: $25
+Gaseosas: $25
+				</p>
+			</div>
+
+		</div>
+
+		<div class="social">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6 instagram">
+					<!-- testing instagram -->
+					<iframe src="http://www.intagme.com/in/?h=cHJvdmlucnVnYnljdXB8c2x8MzAwfDJ8M3x8eWVzfDV8dW5kZWZpbmVkfG5v" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:315px; height: 315px" ></iframe>
+				</div>
+				<div class="col-xs-12 col-sm-5 col-md-3 social-buttons">
+					<p class="hashtag">Hashtag #ProvinRugbyCup</p>
+					<a class="fb-btt" href="https://www.facebook.com/events/749798228420046/?fref=ts" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a class="tw-btt" href="https://twitter.com/search?f=realtime&q=%23provinrugbycup" target="_blank"><i class="fa fa-twitter"></i></a>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="map-canvas"></div>
+
+		<div class="signup-desc" ng-show="controller.signup == true">
+			<p>Partidos de 30min., 3 Partidos Minimo(por equipo)</br>32 equipos de hasta 8 jugadores <br />6 canchas - mayores de 18 años<br />...</p>
+			<a class="signup-btt" href="https://www.facebook.com/events/749798228420046/?fref=ts" target="_blank">Inscribite!</a>
 		</div>
 
 	</section>
